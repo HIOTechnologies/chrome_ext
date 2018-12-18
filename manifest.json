@@ -1,0 +1,33 @@
+{
+   "author": "HIO Technologies Inc.",
+   "background": {
+      "persistent": true,
+      "scripts": [ "background.js", "jquery.js", "jquery.sendkeys.js", "bililiteRange.js" ]
+   },
+   "browser_action": {
+      "default_icon": {
+         "32": "./icons/icon-32.png"
+      },
+      "default_popup": "main.html"
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "js": [ "main.js", "jquery.js", "jquery.sendkeys.js", "bililiteRange.js" ],
+      "matches": [ "<all_urls>" ],
+      "run_at": "document_start"
+   } ],
+   "content_security_policy": "script-src 'self'; object-src 'self'",
+   "description": "HIO Technology.",
+   "icons": {
+      "128": "icons/icon-128.png",
+      "16": "icons/icon-16.png",
+      "32": "./icons/icon-32.png",
+      "48": "icons/icon-48.png"
+   },
+   "manifest_version": 2,
+   "name": "HIO",
+   "options_page": "main.html",
+   "permissions": [ "nativeMessaging", "webNavigation", "contextMenus", "activeTab", "tabs", "notifications", "*://*/*" ],
+   "version": "0.0.79",
+   "web_accessible_resources": [ "main.html", "jquery.js", "jquery.sendkeys.js", "bililiteRange.js" ]
+}
