@@ -210,112 +210,6 @@ function findFormsWithPass(){
 	return formElements;
 	
 }
-/*
-function putGeneratePass(){
-
-	var count=0;
-	var forms=findFormsWithPass();
-	var findRegisterFrom=false;
-	var findForms=[];
-		
-		//first step for find password
-		for (var formIndex = 0; formIndex < forms.length; formIndex++) {
-
-			for (var countElementsForm = 0; countElementsForm < forms[formIndex][0].length; countElementsForm++) {
-				
-				if(forms[formIndex][0].elements[countElementsForm].type!="password"  || forms[formIndex][0].elements[countElementsForm-1].type=="password")
-					continue;
-				if(forms[formIndex][0].elements[countElementsForm+1].type=="password"  && forms[formIndex][0].elements[countElementsForm+2].type=="password"){
-					findRegisterFrom=true;
-					findForms.push(forms[formIndex][0]);
-					console.log(findForms);
-					
-					forms[formIndex][0].elements[countElementsForm+1].addEventListener("focus", function(e){
-						passWordSel=this;
-						for (var countElementsForm = 0; countElementsForm < this.form.length; countElementsForm++) {
-							if(this.form.elements[countElementsForm]==passWordSel && this.form.elements[countElementsForm+1].type=="password"){
-								passWordSel2=this.form.elements[countElementsForm+1];
-								break;
-							}
-						}
-						//check forgot pass field
-						chrome.runtime.sendMessage(
-								{'CMD':'GENERATEPASSWORD','username':"",'url':document.location.origin,'action':document.activeElement.form.action},
-								function (response) {
-									;
-								});	
-						
-					});
-					
-				
-				}else if(forms[formIndex][0].elements[countElementsForm+1].type=="password" ){
-					findRegisterFrom=true;
-					passWordSel2=forms[formIndex][0].elements[countElementsForm+1];
-					findForms.push(forms[formIndex]);
-					forms[formIndex][0].elements[countElementsForm].addEventListener("click", function(e){
-					////////////////////////////////////////
-					passWordSel=this;
-					for (var countElementsForm = 0; countElementsForm < this.form.length; countElementsForm++) {
-							if(this.form.elements[countElementsForm]==passWordSel && this.form.elements[countElementsForm+1].type=="password"){
-								passWordSel2=this.form.elements[countElementsForm+1];
-								break;
-							}
-						}
-					//////////////////////////////////////////////
-
-						chrome.runtime.sendMessage(
-								{'CMD':'GENERATEPASSWORD','username':"",'url':document.location.origin,'action':document.activeElement.form.action},
-								function (response) {
-									;
-								});	
-						
-					});
-				}
-				
-				
-				
-			}
-		
-		}
-	
-	//second step for find password
-	if(forms.length>1 && findRegisterFrom==false){
-		registerForm=FindMaxElementsForm(forms);
-		if(findForms.length==0)
-			registerForm[1].addEventListener("click", function(e){
-				passWordSel=this;
-			
-				chrome.runtime.sendMessage(
-									{'CMD':'GENERATEPASSWORD','username':"",'url':document.location.origin,'action':""},
-									function (response) {
-										;
-									});	
-									
-				window.addEventListener('message', getPassIframe);
-			
-		});
-		
-		for(i=0;i<findForms.length;i++){
-			if(registerForm==findForms[i])
-				continue;
-			registerForm[1].addEventListener("click", function(e){
-				passWordSel=this;
-
-				chrome.runtime.sendMessage(
-									{'CMD':'GENERATEPASSWORD','username':"",'url':document.location.origin,'action':""},
-									function (response) {
-										;
-									});	
-		
-			
-			});
-		}
-		
-		
-	}
-	
-}
-*/
 function getPassIframe(event) { 
 	if(JSON.parse(event.data).type=="pass" ){
 		if( JSON.parse(event.data).autofill==true ){
@@ -460,23 +354,10 @@ function formclear(form){
 }
 
 function fillPassWithGen(password,autofill){
-    //if(passWordSel=="" || passWordSel==null ){
-    //	getLoginFormIframe("pass",autofill);
-    //	return;
-    //}
+
     var userName="";
     var elActive=$(":focus").context.activeElement;
-    //if(autofill){
-    //passWordSel.value="";
-    //passWordSel2.value="";
-    //$(passWordSel).sendkeys(password_BK);
-    //$(passWordSel2).sendkeys(password_BK);
 
-    //	if(elActive.type=="text" || elActive.type=="email" || elActive.type=="number" ||  elActive.type=="url"  ||  elActive.type=="password"){
-
-    //	  elActive.value=password;
-    //}
-    //}
     if(elActive.form!=null)
         userName=getUserName(elActive.form);
 

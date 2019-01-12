@@ -397,7 +397,7 @@ function onDisconnected() {
 	
 	sendDC();
     console.log(chrome.runtime.lastError);
-	console.log('disconnected from Clexi.');
+	console.log('disconnected from Hio.');
 	port = null;
 }
 
