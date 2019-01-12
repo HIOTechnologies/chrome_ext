@@ -1,5 +1,5 @@
 {
-   "author": "HIO Technologies Inc.",
+   "author": "Hio Technologies Inc.",
    "background": {
       "persistent": true,
       "scripts": [ "background.js", "jquery.js", "jquery.sendkeys.js", "bililiteRange.js" ]
@@ -17,7 +17,7 @@
       "run_at": "document_start"
    } ],
    "content_security_policy": "script-src 'self'; object-src 'self'",
-   "description": "HIO Technology.",
+   "description": "Hio Technology.",
    "icons": {
       "128": "icons/icon-128.png",
       "16": "icons/icon-16.png",
@@ -25,9 +25,9 @@
       "48": "icons/icon-48.png"
    },
    "manifest_version": 2,
-   "name": "HIO",
+   "name": "Hio",
    "options_page": "main.html",
    "permissions": [ "nativeMessaging", "webNavigation", "contextMenus", "activeTab", "tabs", "notifications", "*://*/*" ],
-   "version": "0.0.79",
+   "version": "0.0.80",
    "web_accessible_resources": [ "main.html", "jquery.js", "jquery.sendkeys.js", "bililiteRange.js" ]
 }

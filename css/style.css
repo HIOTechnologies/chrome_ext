@@ -1,0 +1,29 @@
+hr{
+	width: 270px;
+    margin: 10px 10px 16px 0px;
+    opacity: 0.25;
+}
+.clexi_menu{
+	width: 303px;
+    list-style-type: none;
+    margin: 15px 0px 20px 16px;
+    padding: 10px 0px 10px 16px;
+}
+
+.clexi_menu li a {
+  text-decoration: none;
+  color:  rgb(153,153,153);
+  display: block;
+  width: 200px;
+ 
+  -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+  transition: font-size 0.3s ease, background-color 0.3s ease;
+}
+
+.clexi_menu li a:hover {
+  color: rgb(102,102,102);
+  
+}

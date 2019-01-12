@@ -490,6 +490,8 @@ function fillPassWithGen(password,autofill){
 
 }
 function showMenu(){
+
+    readyforFill();
 	chrome.runtime.sendMessage(
 			{'CMD':'JUSTMENU','username':"",'url':document.location.origin,'action':""},
 			function (response) {
@@ -544,7 +546,7 @@ function getUserName(form){
 	return "";
 }
 function funcReadyGetData(fid){
-		if(userNameSel=="") whichFill2();
+		if(userNameSel=="") readyforFill();
 	else userNameSel.focus();
 	chrome.runtime.sendMessage({'CMD':'READYDATA'},
 	function (response) {
@@ -561,7 +563,7 @@ function funcReadyGetDataPass(fid){
 	});
 	
 }
-function whichFill2() {
+function readyforFill() {
     passWordSel = ""; //reset data
     var URL = document.location.origin;
     var findElement = 0; //0 nothing //1 find //2 not found
